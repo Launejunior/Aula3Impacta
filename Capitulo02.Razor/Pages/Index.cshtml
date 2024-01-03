@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+    <p> Hoje é: @DateTime.Now</p>
+    <hr />
+    @for (int i=0; i<=10; i++)
+    {
+        <p>O Valor de i: @i</p>
+    }
+
+    <hr />
+    @{
+        var numeros = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        foreach (int z in numeros)
+        {
+            <p>O Valor de z: @z</p>
+        }
+    }
+    <hr />
+    @{
+        int j = 1;
+        int m = 8;
+        while (j <=10)
+        {
+            // 1 * 4 = 4
+            <p>@j x @m = @(j * @m)</p>
+            j++;
+        }
+    }
+
+    <hr />
+
+    
+        @if (DateTime.Now.DayOfWeek == DayOfWeek.Wednesday)
+        {
+           <span>
+                Hoje é Quanta-Feira.<br>
+                Agora São: @DateTime.Now.ToShortTimeString()
+           
+           </span> 
+             }
+            else    
+            { 
+                <span>
+                Hoje não é Sexta-Feira.
+                </span>
+              
+
+        }
+
+        <hr />
+    @switch (DateTime.Now.Hour)
+    {
+        case 12:
+        case 13:
+            <P>Hora do almoço</P>
+            break;
+        case 18:
+        case 19:
+            <p>Hora do jantar</p>
+            break;
+        default:
+            <p>Hora de Dormir</p>
+            break;
+
+
+    }
+
+</div>
+
